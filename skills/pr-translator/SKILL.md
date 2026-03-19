@@ -40,10 +40,15 @@ Read `references/change-categories.md` before classifying changes.
    For a commit range, summarize by major theme first, then by category.
 8. Avoid hallucinating intent.
    If the purpose of a change is unclear, write what the diff shows and what should be verified.
+9. For large diffs, compress repeated implementation details.
+   Summarize by theme first, cap each category at the highest-signal changes, and prioritize behavior, user impact, and operational changes over mechanical file churn.
 
 ## Output Format
 
 Use markdown and follow this structure exactly unless the user requests another format:
+
+If the user requests JSON, return valid JSON only with the same information organized under keys for `tldr`, `scope`, `what_changed`, `user_impact`, `risks`, and `follow_up_actions`.
+Keep markdown as the default output format.
 
 ### TL;DR
 
@@ -140,3 +145,58 @@ Invoice reminders are now more reliable for customers, with a deployment update 
 - Add the feature to release notes.
 - Verify reminder timing in staging with realistic invoice states.
 - Notify support in case customers ask about reminder frequency.
+
+### Example Input
+
+`Summarize this commit range for a release note: feat: add workspace audit exports; fix: prevent duplicate exports on retry; chore: add queue metrics and alerts.`
+
+### Example Output
+
+#### TL;DR
+
+Audit exports are now available, retries are safer, and the rollout gained the monitoring needed to support the change.
+
+#### Scope
+
+- Source: commit range
+- Confidence: medium
+- Primary themes: audit exports, retry safety, queue observability
+
+#### What Changed
+
+##### User-Facing Features
+
+- Change: Added workspace audit exports for admins.
+- Evidence: export workflow and related UI or API changes.
+- Why it matters: gives admins a new way to retrieve audit data.
+
+##### Bug Fixes
+
+- Change: Prevented duplicate exports when retry logic runs more than once.
+- Evidence: retry guard and deduplication checks.
+- Why it matters: reduces duplicate work and confusing output.
+
+##### Infrastructure
+
+- Change: Added queue metrics and alerts to support the export rollout.
+- Evidence: monitoring and alerting configuration.
+- Why it matters: makes the release easier to operate and validate.
+
+#### User Impact
+
+- Admin users can export audit data.
+- Retry behavior is more reliable.
+- The monitoring changes are internal but improve rollout confidence.
+
+#### Risks
+
+- Risk: Export volume may be higher than expected after launch.
+- Severity: medium
+- Reason: the change introduces a new admin workflow that could be used heavily.
+- Validation needed: monitor queue depth, failure rates, and export latency after rollout.
+
+#### Follow-Up Actions
+
+- Add the export capability to release notes.
+- Confirm alert thresholds after the first production rollout.
+- Share rollout guidance with support and operations.

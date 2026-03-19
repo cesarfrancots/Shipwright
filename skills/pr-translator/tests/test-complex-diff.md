@@ -15,6 +15,7 @@ Summarize the following commit range for a sprint review:
 ## Expected Behavior
 
 - [ ] Output treats the input as a commit range rather than a single PR.
-- [ ] Output groups related work into product themes.
+- [ ] Output groups related work into product themes before drilling into categories.
 - [ ] Output classifies changes into all applicable categories.
+- [ ] Output keeps the highest-signal details and does not enumerate every file-level change.
 - [ ] Risks mention rollout, monitoring, or unclear areas when appropriate.
