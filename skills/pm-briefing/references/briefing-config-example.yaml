@@ -1,0 +1,16 @@
+industry:
+  - product analytics
+  - developer tools
+competitors:
+  - Mixpanel
+  - Amplitude
+  - PostHog
+technology_stack:
+  - React
+  - ClickHouse
+  - Stripe
+preferred_sources:
+  - official blogs
+  - investor updates
+  - release notes
+time_horizon: 7d
