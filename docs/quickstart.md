@@ -3,13 +3,13 @@
 ## Install the full pack
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-org/pm-pilot/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/cesarfrancots/Shipwright/main/install.sh | bash
 ```
 
 ## Install selected skills
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-org/pm-pilot/main/install.sh | bash -s -- --skills pr-translator,prd-builder
+curl -sSL https://raw.githubusercontent.com/cesarfrancots/Shipwright/main/install.sh | bash -s -- --skills pr-translator,prd-builder
 ```
 
 ## Verify installation
