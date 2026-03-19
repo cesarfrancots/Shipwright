@@ -26,6 +26,7 @@ Default to `divergent` mode if the user does not specify a mode.
 1. Restate the problem to anchor the session.
 2. Choose the brainstorming mode:
    `divergent`, `convergent`, `contrarian`, or `adjacent`.
+   Default to `divergent` if the user does not specify a mode.
 3. Generate exactly 10 ideas unless the user requests a different count.
 4. For each idea, provide:
    title, summary, target user, key assumption, and RICE score.
@@ -33,10 +34,15 @@ Default to `divergent` mode if the user does not specify a mode.
    Reach, Impact, Confidence, Effort, and computed priority.
 6. Do not fabricate precision.
    Use relative estimates when exact numbers are unavailable.
-7. Sort ideas from strongest to weakest by RICE score unless the user requests another ordering.
-8. If the user selects one idea for a deep dive, expand it with:
+7. In `divergent` mode, maximize variety but collapse near-duplicate ideas into one core concept with variants when they differ only by wording, channel, or delivery mechanism.
+8. Sort ideas from strongest to weakest by RICE score unless the user requests another ordering.
+   When ideas are tied or nearly tied, break ties in this order:
+   higher Confidence, lower Effort, better fit to the stated user/problem, then original order.
+   If the scores are still effectively tied, label them as a tie instead of inventing more precision.
+9. If the user selects one idea for a deep dive, expand it with:
    user stories, likely objections, dependency notes, and a rough scope estimate.
-9. Label whether a deep-dive idea is likely `small`, `medium`, or `large`.
+10. Label whether a deep-dive idea is likely `small`, `medium`, or `large`.
+11. Keep the deep-dive behavior scoped to the selected idea only; do not replace the scored list with the expansion.
 
 ## Output Format
 
@@ -51,6 +57,8 @@ Default to `divergent` mode if the user does not specify a mode.
 
 | Rank | Idea | Summary | Reach | Impact | Confidence | Effort | RICE |
 |---|---|---|---|---|---|---|---|
+
+If two ideas are close enough to share a rank, show the rank as a tie or shared position and explain the tie-break in the detail notes.
 
 ### Idea Details
 

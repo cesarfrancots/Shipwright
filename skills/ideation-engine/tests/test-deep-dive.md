@@ -15,4 +15,5 @@ After listing ideas, deep-dive idea #2.
 - [ ] Output uses contrarian framing.
 - [ ] Output still generates 10 scored ideas first.
 - [ ] Output includes a `Deep Dive` section for the selected idea.
+- [ ] Output keeps the scored list intact and does not replace it with the expansion.
 - [ ] Deep dive includes user stories, objections, and scope estimate.
