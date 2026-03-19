@@ -1,118 +1,94 @@
-# Note Templates
+# Shipwright Note Templates
 
-Use these templates as the initial content for files under `Templates/`.
+Use these as the canonical Shipwright templates when the MCP server is unavailable or when templates need to be reviewed by a human.
 
-## Template: Initiative
+## Common Frontmatter
 
-```markdown
----
-type: initiative
-status: active
+Every note should include:
+
+```yaml
+type: ""
+status: ""
 owner: ""
-review_cadence: weekly
----
-
-# Initiative - <name>
-
-## Outcome
-
-## Success Metrics
-
-## Linked PRD
-- [[PRD - <name>]]
-
-## Current Risks
-
-## Next Milestone
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+initiative: ""
+prd: ""
+sprint: ""
+tags: []
 ```
 
-## Template: PRD
+## Template Keys
 
-```markdown
----
-type: prd
-status: draft
-owner: ""
----
+- `initiative`
+- `prd`
+- `adr`
+- `research-note`
+- `sprint-plan`
+- `release-note`
+- `metrics-plan`
+- `stakeholder-update`
+- `daily-log`
 
-# PRD - <feature-name>
+## Additional Metadata by Template
 
-## Problem
+- `initiative`: `success_metric`, `target_date`
+- `prd`: `stage`, `mvp_scope`, `future_phases`
+- `adr`: `decision_date`, `supersedes`
+- `research-note`: `source_type`, `confidence`
+- `sprint-plan`: `sprint_id`, `start`, `end`
+- `release-note`: `release_date`, `version`
+- `metrics-plan`: `north_star`, `guardrails`
+- `stakeholder-update`: `audience`, `period`
+- `daily-log`: `date`
 
-## Goals
+## Core Sections
 
-## Non-Goals
+### Initiative
 
-## MVP Scope
+- Outcome
+- Success Metrics
+- Linked PRD
+- Linked Decisions
+- Metrics Plan
+- Current Risks
+- Sprint Notes
+- Release Notes
 
-## Future Phases
+### PRD
 
-## Acceptance Criteria
+- Problem
+- Goals
+- Non-Goals
+- MVP Scope
+- Future Phases
+- Acceptance Criteria
+- Related Initiative
+- Linked Decisions
+- Metrics Plan
+- Release Notes
 
-## Linked Decisions
-- [[ADR - <decision-title>]]
-```
+### ADR
 
-## Template: Decision Record (ADR)
+- Context
+- Decision
+- Consequences
+- Related Initiative
+- Related PRD
 
-```markdown
----
-type: adr
-status: proposed
-date: YYYY-MM-DD
----
+### Sprint Plan
 
-# ADR - <title>
+- Goals
+- Planned Scope
+- Linked Initiatives
+- Current Risks
+- Mid-Sprint Update
+- End-of-Sprint Outcome
 
-## Context
+### Release Note
 
-## Decision
-
-## Consequences
-
-## Related PRD
-- [[PRD - <feature-name>]]
-```
-
-## Template: Sprint Plan
-
-```markdown
----
-type: sprint
-sprint_id: ""
-start: YYYY-MM-DD
-end: YYYY-MM-DD
----
-
-# Sprint - <id>
-
-## Goals
-
-## Planned Scope
-
-## Risks
-
-## Mid-Sprint Update
-
-## End-of-Sprint Outcome
-```
-
-## Template: Stakeholder Update
-
-```markdown
----
-type: stakeholder-update
-audience: leadership
-date: YYYY-MM-DD
----
-
-# Weekly Product Update
-
-## What shipped
-
-## Impact
-
-## Risks / dependencies
-
-## Next week
-```
+- Summary
+- Customer Impact
+- Shipped PRDs
+- Stakeholder Update
+- Follow-up Monitoring

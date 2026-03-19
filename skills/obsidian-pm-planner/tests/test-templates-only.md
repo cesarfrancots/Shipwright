@@ -4,8 +4,8 @@
 
 Use the `obsidian-pm-planner` skill.
 
-I already have an Obsidian vault.
-Give me only templates for:
+I already have an Obsidian vault and the Shipwright MCP server is available.
+Use MCP-managed templates for:
 - initiative tracking
 - PRD
 - decision records
@@ -13,7 +13,7 @@ Give me only templates for:
 
 ## Expected Behavior
 
-- [ ] Output specifies `templates-only` mode.
+- [ ] Output specifies `mcp-managed-templates` mode.
+- [ ] Output prefers MCP actions before copy-paste markdown.
 - [ ] Output does not force plugin dependencies.
-- [ ] Output provides copy-paste-ready markdown templates.
-- [ ] Output keeps PM workflow links consistent across templates.
+- [ ] Output keeps Shipwright workflow links consistent across templates.

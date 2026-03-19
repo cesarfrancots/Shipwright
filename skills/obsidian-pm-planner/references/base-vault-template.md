@@ -1,45 +1,48 @@
-# Base Vault Template
+# Shipwright Vault Template
 
-Use this structure for a PM-focused Obsidian vault.
+Use this structure for the Shipwright-managed area of an Obsidian vault.
 
 ```text
-00-Home/
-01-Initiatives/
-02-PRDs/
-03-Decisions/
-04-Meetings/
-05-Sprints/
-06-Releases/
-07-Metrics/
-08-Risks/
-09-Archive/
+Shipwright/
+  00-Hub/
+  01-Initiatives/
+  02-PRDs/
+  03-Decisions/
+  04-Research/
+  05-Sprints/
+  06-Releases/
+  07-Metrics/
+  08-Stakeholders/
+  09-Risks/
+  10-Archive/
 Templates/
+  Shipwright/
 ```
 
-## Suggested Core Files
+## Required Starter Notes
 
-- `00-Home/PM-Command-Center.md`
-- `01-Initiatives/Initiative-Index.md`
-- `02-PRDs/PRD-Index.md`
-- `03-Decisions/Decision-Log.md`
-- `05-Sprints/Sprint-Board.md`
-- `06-Releases/Release-Notes-Index.md`
-- `08-Risks/Risk-Register.md`
+- `Shipwright/00-Hub/Shipwright Hub.md`
+- `Shipwright/01-Initiatives/Initiatives Index.md`
+- `Shipwright/02-PRDs/PRD Index.md`
+- `Shipwright/03-Decisions/Decision Log.md`
+- `Shipwright/05-Sprints/Sprint Board.md`
+- `Shipwright/06-Releases/Release Notes Index.md`
+- `Shipwright/07-Metrics/Metrics Dashboard.md`
+- `Shipwright/09-Risks/Risk Register.md`
+
+## Safety Boundary
+
+Shipwright should only read and write inside:
+
+- `Shipwright/`
+- `Templates/Shipwright/`
+
+Do not treat the rest of the vault as writable workspace content.
 
 ## Linking Conventions
 
-- Initiative note links to one PRD note:
-  `[[PRD - <feature-name>]]`
-- PRD note links to decision notes:
-  `[[ADR - <decision-title>]]`
-- Sprint notes link to active initiatives and risks.
-- Release notes link back to PRD and initiative.
-
-## Weekly Operating Rhythm
-
-1. Monday:
-   Update `Sprint-Board`, top risks, and weekly priorities.
-2. Mid-week:
-   Add decision notes and unresolved blockers.
-3. Friday:
-   Publish release note summary and archive completed sprint items.
+- Initiative notes link to PRD, ADR, metrics plan, sprint notes, release notes, and risks.
+- PRD notes link back to the initiative and forward to decisions and releases.
+- Sprint notes link to active initiatives and current risks.
+- Release notes link to shipped PRDs and stakeholder updates.
+- Metrics plans link to both initiative and PRD.

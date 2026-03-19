@@ -62,9 +62,10 @@ Expected output includes a TL;DR, categorized changes, user impact, risks, and f
 ## Repository Structure
 
 ```text
-skills/                  # 8 production skills
+skills/                  # 9 production skills
 docs/                    # PRD, quickstart, platform setup
 examples/                # End-to-end PM workflows
+shipwright_obsidian_mcp/ # Optional local MCP server for Obsidian
 install.sh               # Cross-platform symlink installer
 RULES.md                 # Canonical project rules
 ```
@@ -73,6 +74,7 @@ RULES.md                 # Canonical project rules
 
 - [Quickstart](docs/quickstart.md)
 - [Platform setup](docs/platform-setup/claude-code.md)
+- [Obsidian MCP](docs/integrations/obsidian-mcp.md)
 - [Project rules](RULES.md)
 - [Contributing](CONTRIBUTING.md)
 - [License](LICENSE)

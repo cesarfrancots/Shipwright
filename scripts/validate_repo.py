@@ -17,12 +17,39 @@ REQUIRED_ROOT_PATHS = [
     ("dir", ROOT / "skills"),
     ("dir", ROOT / "docs"),
     ("dir", ROOT / "examples"),
+    ("dir", ROOT / "shipwright_obsidian_mcp"),
     ("file", ROOT / "install.sh"),
     ("file", ROOT / "README.md"),
     ("file", ROOT / "RULES.md"),
 ]
 
 REQUIRED_FRONTMATTER_KEYS = ("name", "description", "license", "metadata")
+REQUIRED_MCP_MODULE_FILES = (
+    "__init__.py",
+    "__main__.py",
+    "config.py",
+    "models.py",
+    "templates.py",
+    "vault.py",
+    "server.py",
+)
+REQUIRED_TEMPLATE_FILES = (
+    "initiative.md",
+    "prd.md",
+    "adr.md",
+    "research-note.md",
+    "sprint-plan.md",
+    "release-note.md",
+    "metrics-plan.md",
+    "stakeholder-update.md",
+    "daily-log.md",
+)
+OBSIDIAN_INTEGRATION_FILES = (
+    ROOT / "docs" / "integrations" / "obsidian-mcp.md",
+    ROOT / "skills" / "obsidian-pm-planner" / "SKILL.md",
+    ROOT / "skills" / "obsidian-pm-planner" / "references" / "base-vault-template.md",
+    ROOT / "skills" / "obsidian-pm-planner" / "references" / "note-templates.md",
+)
 
 
 @dataclass(frozen=True)
@@ -38,6 +65,7 @@ def main() -> int:
     issues: list[Issue] = []
     issues.extend(validate_root_structure())
     issues.extend(validate_skills())
+    issues.extend(validate_mcp_subsystem())
     issues.extend(validate_markdown_placeholders())
 
     if issues:
@@ -119,6 +147,40 @@ def validate_markdown_placeholders() -> list[Issue]:
         for lineno, line in enumerate(content.splitlines(), start=1):
             if "your-org" in line.lower():
                 issues.append(Issue(path, f"placeholder 'your-org' found on line {lineno}"))
+    return issues
+
+
+def validate_mcp_subsystem() -> list[Issue]:
+    issues: list[Issue] = []
+    package_root = ROOT / "shipwright_obsidian_mcp"
+    for filename in REQUIRED_MCP_MODULE_FILES:
+        path = package_root / filename
+        if not path.is_file():
+            issues.append(Issue(path, "missing required MCP module file"))
+
+    template_root = package_root / "assets" / "templates"
+    for filename in REQUIRED_TEMPLATE_FILES:
+        path = template_root / filename
+        if not path.is_file():
+            issues.append(Issue(path, "missing required MCP template asset"))
+
+    for path in OBSIDIAN_INTEGRATION_FILES:
+        if not path.is_file():
+            issues.append(Issue(path, "missing Obsidian integration file"))
+            continue
+        content = path.read_text(encoding="utf-8")
+        if "Shipwright" not in content:
+            issues.append(Issue(path, "must reference canonical Shipwright naming"))
+        if "PM Pilot/" in content:
+            issues.append(Issue(path, "must not reference stale 'PM Pilot/' vault paths"))
+
+    skill_file = ROOT / "skills" / "obsidian-pm-planner" / "SKILL.md"
+    if skill_file.is_file():
+        content = skill_file.read_text(encoding="utf-8")
+        for required_text in ("bootstrap-vault", "mcp-managed-templates", "Shipwright/"):
+            if required_text not in content:
+                issues.append(Issue(skill_file, f"missing required Obsidian skill text: {required_text}"))
+
     return issues
 
 
