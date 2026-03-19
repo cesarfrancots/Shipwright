@@ -25,6 +25,7 @@ Check the relevant skill directory for your platform:
 - `/pr-translate summarize this PR for product`
 - `/prd Add shared saved views for dashboards`
 - `/ideate Brainstorm ways to reduce onboarding drop-off`
+- `/obsidian-plan Bootstrap an Obsidian vault for PM Pilot planning and decision logs`
 
 ## Tips
 

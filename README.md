@@ -40,6 +40,7 @@ curl -sSL https://raw.githubusercontent.com/cesarfrancots/Shipwright/main/instal
 | `metrics-definer` | Define north star metrics, guardrails, and instrumentation plans. | `/metrics` |
 | `pm-briefing` | Create a PM news and market briefing from topic context. | `/pm-briefing` |
 | `competitive-intel` | Compare competitors, surface market gaps, and recommend positioning. | `/competitive` |
+| `obsidian-pm-planner` | Set up an Obsidian vault for PM planning, notes, and traceable documentation. | `/obsidian-plan` |
 
 ## Quick Start Workflow
 
