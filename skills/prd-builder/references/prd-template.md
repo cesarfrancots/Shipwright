@@ -73,6 +73,18 @@ Acceptance criteria:
 - FR2:
 - FR3:
 
+### MVP Scope
+
+- MVP1:
+- MVP2:
+- MVP3:
+
+### Future Phases
+
+- Future 1:
+- Future 2:
+- Future 3:
+
 ### Non-Functional Requirements
 
 - NFR1:

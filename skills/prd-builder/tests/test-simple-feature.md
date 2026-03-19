@@ -14,3 +14,4 @@ Create a PRD for:
 - [ ] Output includes user stories with acceptance criteria.
 - [ ] Output lists clarifying questions if important context is missing.
 - [ ] Output includes metrics, risks, and a phased timeline.
+- [ ] Output makes the MVP boundary explicit and separates future phases from first-release requirements.

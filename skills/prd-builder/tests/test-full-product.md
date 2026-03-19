@@ -12,3 +12,5 @@ Draft a PRD for a new AI assistant feature that helps sales teams prepare for cu
 - [ ] Output includes a clarifying questions section near the top.
 - [ ] Output distinguishes goals from non-goals.
 - [ ] Output provides practical requirements and measurable success criteria.
+- [ ] Output stops asking once remaining ambiguity is not decision-critical and proceeds with explicit assumptions.
+- [ ] Output keeps the first release scope separate from future phases.

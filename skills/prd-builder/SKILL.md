@@ -19,7 +19,7 @@ Use this skill when the user needs a production-ready PRD from a raw idea, initi
 
 Read `references/prd-template.md` before drafting.
 
-Support `$ARGUMENTS` as the default source for the feature description.
+Support `$ARGUMENTS` as the default source for the feature description. Treat it as the primary input when present, and fall back to the user message only if `$ARGUMENTS` is empty or incomplete.
 
 If the idea is underspecified, ask clarifying questions first.
 If the user still wants a draft immediately, include an `Open Questions` section and mark assumptions explicitly.
@@ -29,21 +29,28 @@ If the user still wants a draft immediately, include an `Open Questions` section
 1. Parse the feature description from `$ARGUMENTS` or the user message.
 2. Identify missing context across five areas:
    product context, target user, business goal, constraints, and rollout expectations.
-3. If critical context is missing, list the clarifying questions you would ask before drafting.
-4. Draft the PRD using the structure in `references/prd-template.md`.
-5. State assumptions plainly.
+3. Ask clarifying questions only when the missing context changes scope, audience, success criteria, constraints, or rollout decisions.
+   If the remaining ambiguity is not decision-critical, stop asking and proceed with explicit assumptions.
+4. If you ask questions, keep them high-signal and limited.
+   Prefer a short set of the most leverageable questions over exhaustive interrogation.
+5. If the user asks for a draft now, or if the context is still partially missing after the first pass, draft the PRD anyway and list assumptions in `Open Questions`.
+6. Draft the PRD using the structure in `references/prd-template.md`.
+7. State assumptions plainly.
    Do not hide uncertainty inside authoritative language.
-6. Write user stories in the format:
+8. Write user stories in the format:
    `As a <persona>, I want <capability>, so that <outcome>.`
-7. Attach acceptance criteria to every user story.
+9. Attach acceptance criteria to every user story.
    Make criteria observable and testable.
-8. Separate requirements into functional and non-functional where useful.
-9. Keep goals and non-goals distinct.
+10. Separate requirements into functional and non-functional where useful.
+    Also distinguish MVP requirements from future-phase enhancements so the first release boundary is obvious.
+11. Keep goals and non-goals distinct.
    Non-goals should narrow scope, not repeat goals negatively.
-10. Recommend metrics that can realistically be measured.
-11. Include timeline guidance even when dates are unknown.
+12. Recommend metrics that can realistically be measured.
+13. Include timeline guidance even when dates are unknown.
     Use phases, dependencies, and review checkpoints.
-12. Avoid implementation over-specification unless the user asks for a technical spec.
+14. Avoid implementation over-specification unless the user asks for a technical spec.
+15. Keep the tone concise and decision-oriented.
+    A compact PRD is better than a long one when the source input is simple.
 
 ## Clarifying Questions
 
@@ -56,6 +63,19 @@ Ask questions like these when context is insufficient:
 - What should be explicitly out of scope for the first release?
 - Is this intended for all users, a specific segment, or a phased rollout?
 - Are there existing metrics, baselines, or target numbers we should use?
+
+Stop asking once the unanswered items would only refine wording or edge cases rather than change the PRD shape.
+At that point, write the draft with stated assumptions and an `Open Questions` section.
+
+## Example Output
+
+Minimal expected tone:
+
+`Status: draft`
+
+`MVP: summarize unresolved tickets for workspace admins via email once per week.`
+
+`Future phases: per-team digests, custom schedules, and Slack delivery.`
 
 ## Output Format
 
@@ -76,6 +96,8 @@ Use markdown with these sections, in this order:
 13. Risks and Mitigations
 14. Timeline and Milestones
 15. Open Questions
+
+Within `Requirements`, make the MVP boundary explicit before listing future-phase ideas.
 
 ## Examples
 
