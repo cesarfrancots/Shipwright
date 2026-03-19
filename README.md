@@ -1,13 +1,13 @@
-# PM Pilot
+# Shipwright
 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![Platforms: Claude Code, Codex CLI, GitHub Copilot](https://img.shields.io/badge/platforms-Claude%20Code%20%7C%20Codex%20CLI%20%7C%20GitHub%20Copilot-1f6feb)
 
-PM Pilot is an open-source collection of Agent Skills for product managers.
+Shipwright is an open-source collection of Agent Skills for product managers.
 It turns AI coding assistants into practical PM copilots for PR translation, PRD generation, ideation, metrics planning, stakeholder communication, diagramming, briefings, and competitive analysis.
 The project follows the [Agent Skills open standard](https://agentskills.io), so the same skill pack can run across compatible assistants.
 
-## Why PM Pilot
+## Why Shipwright
 
 - Reduce PM time spent decoding technical artifacts.
 - Standardize recurring outputs like PRDs, release summaries, and stakeholder updates.
@@ -41,6 +41,7 @@ curl -sSL https://raw.githubusercontent.com/cesarfrancots/Shipwright/main/instal
 | `pm-briefing` | Create a PM news and market briefing from topic context. | `/pm-briefing` |
 | `competitive-intel` | Compare competitors, surface market gaps, and recommend positioning. | `/competitive` |
 | `obsidian-pm-planner` | Set up an Obsidian vault for PM planning, notes, and traceable documentation. | `/obsidian-plan` |
+| `pdf-ops` | Generate, review, and refine PDFs with layout and quality checks. | `/pdf-ops` |
 
 ## Quick Start Workflow
 
@@ -62,7 +63,7 @@ Expected output includes a TL;DR, categorized changes, user impact, risks, and f
 ## Repository Structure
 
 ```text
-skills/                  # 9 production skills
+skills/                  # 10 production skills
 docs/                    # PRD, quickstart, platform setup
 examples/                # End-to-end PM workflows
 shipwright_obsidian_mcp/ # Optional local MCP server for Obsidian
